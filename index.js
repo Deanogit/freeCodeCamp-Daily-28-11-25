@@ -14,13 +14,31 @@
 // The first "P" is not in the correct location ("1"), the "O" isn't in the secret word ("0"), the second "P" is in the correct location ("2"), the third "P" is a zero ("0") because the two "P"'s in the secret word have been used, and the "A" is not in the correct location ("1").
 
 function compare(word, guess) {
-  console.log('This is the word: ', word, 'This is the guess: ', guess);
+  console.log('This is the secret word: ', word, 'This is the guess: ', guess);
   // create two arrays
+  const secretArray = word.split('');
+  const guessArray = guess.split('');
+
+  function compareArrays(a, b) {
+    let counter = [];
+    for (let i = 0; i <= a.length; i++) {
+      if (a[i] === b[i]) {
+        counter.push('2');
+      } else {
+        counter.push(b[i]);
+      }
+    }
+    return counter;
+  }
+
+  const test = compareArrays(secretArray, guessArray);
+  console.log('This is the test string: ', test);
   // run through arrays to compare
   // if match push("2")
   // if not match check if array contains letter
   // if yes push("1")
   // if no match and doesnt contain push("0")
   // return string
+
   return word;
 }
