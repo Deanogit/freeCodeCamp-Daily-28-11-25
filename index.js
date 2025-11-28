@@ -22,18 +22,38 @@ function compare(word, guess) {
   // run through arrays to compare
   function compareArrays(a, b) {
     let counter = [];
-    for (let i = 0; i <= a.length; i++) {
+    // use a third counter to subtract number of letters in the guess from those in the secret?
+    let letterCounter = [];
+
+    let checkA = [];
+    let checkB = [];
+    for (let i = 0; i < a.length - 1; i++) {
+      console.log('This is a: ', a[i], 'This is b: ', b[i]);
       // if match push("2")
       if (a[i] === b[i]) {
+        console.log('Pushing two');
         counter.push('2');
       }
       // if not match check if array contains letter
+      // and number of times in guess does not exceed number of times in secret
       else if (a.includes(b[i])) {
+        // check number of instances
+        checkA = findLetterInstances(a, b[i]);
+        letterCounter = findLetterInstances(a, b[i]);
+        checkB = findLetterInstances(b, b[i]);
+        console.log('CheckA', checkA);
+        console.log('CheckB', checkB);
+        if (checkB.length > checkA.length) {
+          console.log('Repeated too many times');
+          console.log('Pushing zero');
+          counter.push('0');
+        }
+        console.log('Pushing one');
         counter.push('1');
         // If a letter occurs multiple times in the guess, it can only match as many times as it appears in the secret word.
-      } else {
+        // } else {
         // if no match and doesnt contain push("0")
-        counter.push('0');
+        //counter.push("0")
       }
     }
     return counter;
@@ -45,6 +65,17 @@ function compare(word, guess) {
   // return string
 
   return word;
+}
+
+// Check how many times a letter exists in an array
+function findLetterInstances(a, l) {
+  const counter = [];
+  for (let i = 0; i <= a.length; i++) {
+    if (a[i] === l) {
+      counter.push(l);
+    }
+  }
+  return counter;
 }
 
 // The includes() method returns true if an array contains a specified value.
