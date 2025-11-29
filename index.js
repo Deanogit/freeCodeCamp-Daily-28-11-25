@@ -87,28 +87,21 @@ function compare(word, guess) {
   // create arrays
   const secretArr = word.split('');
   const guessArr = guess.split('');
-  console.log('This is secretA: ', secretArr, 'This is guessArr: ', guessArr);
+  const guessCounter = [];
+  const secretCounter = [];
+  console.log('This is secretArr: ', secretArr, 'This is guessArr: ', guessArr);
   // check if letter in the guess repeats more times than secret
+  for (let i = 0; i <= secretArr.length - 1; i++) {
+    // loop through and push to counters
+    guessCounter.push(guessArr[i]);
+    secretCounter.push(secretArr[i]);
+    // check if guessCounter has more guessArr[i] than secret
+    if (secretArr.includes(guessArr[i])) {
+      console.log('Secret includes: ', guessArr[i]);
+      console.log('SecretCounter', secretCounter);
+      console.log('GuessCounter: ', guessCounter);
+    }
+  }
+
   // replace repeated letter with "0"
 }
-//   console.log('This is the test string: ', test);
-//   // if yes push("1")
-//   // return string
-
-//   return word;
-// }
-
-// // Check how many times a letter exists in an array
-// function findLetterInstances(a, l) {
-//   const counter = [];
-//   for (let i = 0; i <= a.length; i++) {
-//     if (a[i] === l) {
-//       counter.push(l);
-//     }
-//   }
-//   return counter;
-// }
-
-// // The includes() method returns true if an array contains a specified value.
-// // The includes() method returns false if the value is not found.
-// // The includes() method is case sensitive.
