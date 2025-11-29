@@ -157,3 +157,22 @@
 
 // // console.log(myObject);
 // // Expected output: { h: 1, e: 1, l: 3, o: 2, ' ': 1, w: 1, r: 1, d: 1 }
+
+function compare(word, guess) {
+  function countChars(str) {
+    const charCount = {};
+    for (let i = 0; i <= str.length; i++) {
+      const char = str[i];
+      // check if char is already a key in the object
+      if (charCount[char]) {
+        charCount[char]++;
+      } else {
+        charCount[char] = 1;
+      }
+      return charCount;
+    }
+  }
+  const secretObj = countChars(word);
+  const guessObj = countChars(guess);
+  console.log(secretObj);
+}
