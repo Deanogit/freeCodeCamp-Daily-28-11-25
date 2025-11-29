@@ -175,4 +175,7 @@ function compare(word, guess) {
   const secretObj = countChars(word);
   const guessObj = countChars(guess);
   console.log('This is the secret Obj: ', secretObj);
+  // returns  { A: 1, P: 2, L: 1, E: 1 }
+  console.log('This is the guess: ', guessObj);
+  // returns  { P: 3, O: 1, A: 1 }
 }
