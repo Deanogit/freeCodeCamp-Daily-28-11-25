@@ -82,26 +82,78 @@
 // // The includes() method returns false if the value is not found.
 // // The includes() method is case sensitive.
 
-function compare(word, guess) {
-  console.log('This is the secret: ', word, 'This is the guess: ', guess);
-  // create arrays
-  const secretArr = word.split('');
-  const guessArr = guess.split('');
-  const guessCounter = [];
-  const secretCounter = [];
-  console.log('This is secretArr: ', secretArr, 'This is guessArr: ', guessArr);
-  // check if letter in the guess repeats more times than secret
-  for (let i = 0; i <= secretArr.length - 1; i++) {
-    // loop through and push to counters
-    guessCounter.push(guessArr[i]);
-    secretCounter.push(secretArr[i]);
-    // check if guessCounter has more guessArr[i] than secret
-    if (secretArr.includes(guessArr[i])) {
-      console.log('Secret includes: ', guessArr[i]);
-      console.log('SecretCounter', secretCounter);
-      console.log('GuessCounter: ', guessCounter);
-    }
-  }
+// function compare(word, guess) {
+//   console.log("This is the secret: ", word, "This is the guess: ", guess)
+// create arrays
+//  const secretArr = word.split("");
+//  const guessArr = guess.split("");
+//  const guessCounter = [];
+//  const secretCounter = [];
+//   console.log("This is secretArr: ", secretArr, "This is guessArr: ", guessArr);
+// check if letter in the guess repeats more times than secret
+//  for ( let i = 0; i <= secretArr.length - 1; i++) {
+// loop through and push to counters
+//     guessCounter.push(guessArr[i])
+//     secretCounter.push(secretArr[i])
+// check if guessCounter has more guessArr[i] than secret
+//   if (secretArr.includes(guessArr[i])) {
+//      console.log("Secret includes: ", guessArr[i])
+//     console.log("SecretCounter", secretCounter)
+//     console.log("GuessCounter: ", guessCounter)
+//   }
 
-  // replace repeated letter with "0"
+// }
+
+// replace repeated letter with "0"
+
+//}
+
+// start from scratch working with strings, array and objects
+function compare(word, guess) {
+  // take the string, create an array with an index
+  function generateObj(str, name) {
+    const arr = [];
+    const objStr = '';
+    let counter = 0;
+    for (let i = 0; i <= str.length - 1; i++) {
+      arr.push(counter);
+      counter++;
+      arr.push(str.charAt(i));
+      console.log(str.charAt(i));
+      objStr.concat(str.charAt(i));
+    }
+    console.log(arr);
+    console.log(arr.join());
+    const obj = Object.entries();
+  }
+  generateObj(word);
+  return word;
 }
+
+// let str='{"name":"Josh","age":17}'
+
+//using the json.parse() method
+// let objFromStr=JSON.parse(str);
+
+//printing the object
+// console.log(objFromStr);
+
+// function countChars(str) {
+//   const charCount = {}; // Use an object initializer to create an empty object [4]
+//  for (let i = 0; i < str.length; i++) {
+//    const char = str[i];
+// Check if the character is already a key in the object
+//    if (charCount[char]) {
+//      charCount[char]++; // If it exists, increment its value
+//    } else {
+//      charCount[char] = 1; // If it doesn't, add it as a new key with a value of 1
+//    }
+//  }
+//  return charCount;
+// }
+
+// const myString = "hello world";
+// const myObject = countChars(myString);
+
+// console.log(myObject);
+// Expected output: { h: 1, e: 1, l: 3, o: 2, ' ': 1, w: 1, r: 1, d: 1 }
