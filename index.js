@@ -161,7 +161,7 @@
 function compare(word, guess) {
   function countChars(str) {
     const charCount = {};
-    for (let i = 0; i <= str.length; i++) {
+    for (let i = 0; i < str.length; i++) {
       const char = str[i];
       // check if char is already a key in the object
       if (charCount[char]) {
@@ -169,10 +169,10 @@ function compare(word, guess) {
       } else {
         charCount[char] = 1;
       }
-      return charCount;
     }
+    return charCount;
   }
   const secretObj = countChars(word);
   const guessObj = countChars(guess);
-  console.log(secretObj);
+  console.log('This is the secret Obj: ', secretObj);
 }
